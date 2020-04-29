@@ -1,0 +1,11 @@
+flows:
+  default:
+  - task: http
+    in:
+      method: GET # or DELETE
+      url: "http://docker.for.mac.host.internal:1000/restwithuid"
+      response: json
+      out: jsonResponse
+  - if: ${jsonResponse.success}
+    then:
+     - log: "Response received: ${jsonResponse.content}"
