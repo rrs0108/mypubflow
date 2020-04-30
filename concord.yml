@@ -11,7 +11,7 @@ flows:
     in:
       method: GET # or DELETE
       url: "http://docker.for.mac.host.internal:1000/api/restwithuid"
-      response: json
+      response: string
       out: jsonResponse
   - if: ${jsonResponse.success}
     then:
