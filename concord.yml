@@ -16,5 +16,5 @@ flows:
     then:
      - log: "Response received: ${jsonResponse.content}"
 
-  - script: mypy.py
+  - script: my_module.py
   - log: "Result is ${y}"
