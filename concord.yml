@@ -10,7 +10,7 @@ flows:
   - task: http
     in:
       method: GET # or DELETE
-      url: "http://docker.for.mac.host.internal:1000/restwithuid"
+      url: "http://docker.for.mac.host.internal:1000/api/restwithuid"
       response: json
       out: jsonResponse
   - if: ${jsonResponse.success}
@@ -21,5 +21,5 @@ flows:
       x: "${jsonResponse}"
 
   - log: "x is ${x}"
-#  - script: example.py
-#  - log: "Result is ${y}"
+  - script: example.py
+  - log: "Result is ${y}"

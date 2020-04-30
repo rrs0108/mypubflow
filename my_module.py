@@ -2,6 +2,8 @@ import json
 
 def test(ctx, x):
     print 'Hello from another module!'
-    ctx.setVariable('y',1)
-    json_load = json.loads(x)
-    json_out = json_load["uid"]
+    ctx.setVariable('y',0)
+    x = x.replace("=",":")
+    print(x)
+    y = json.loads(x)["uid"]
+    print(y)
