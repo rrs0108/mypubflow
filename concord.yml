@@ -1,8 +1,6 @@
 configuration:
   dependencies:
   - "mvn://org.python:jython-standalone:2.7.1"
-  arguments:
-    x: "NULL"
 
 flows:
   default:
@@ -11,10 +9,13 @@ flows:
       method: GET # or DELETE
       url: "http://docker.for.mac.host.internal:1000/restwithuid"
       response: json
-      out: x
-  - if: ${x.success}
+      out: jsonResponse
+  - if: ${jsonResponse.success}
     then:
-     - log: "Response received: ${x.content}"
+     - log: "Response received: ${jsonResponse.content}"
+
+  - set:
+      x: "${jsonResponse.content}"
 
   - script: my_module.py
   - log: "Result is ${y}"
