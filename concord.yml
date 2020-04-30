@@ -11,10 +11,10 @@ flows:
       method: GET # or DELETE
       url: "http://docker.for.mac.host.internal:1000/restwithuid"
       response: json
-      out: jsonResponse
-  - if: ${jsonResponse.success}
+      out: x
+  - if: ${x.success}
     then:
-     - log: "Response received: ${jsonResponse.content}"
+     - log: "Response received: ${x.content}"
 
   - script: my_module.py
   - log: "Result is ${y}"
