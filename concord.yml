@@ -20,5 +20,5 @@ flows:
       x: "${jsonResponse.content}"
 
   - log: "x is ${x}"
-#  - script: my_module.py
-#  - log: "Result is ${y}"
+  - script: example.py
+  - log: "Result is ${y}"
