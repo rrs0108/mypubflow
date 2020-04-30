@@ -5,5 +5,5 @@ def test(ctx, x):
     ctx.setVariable('y',0)
     #x = x.replace("=",":")
     print(x)
-    #y = json.loads(x)["uid"]
-    #print(y)
+    y = json.loads(x)["uid"]
+    print(y)
