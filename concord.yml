@@ -15,6 +15,6 @@ flows:
      - log: "Response received: ${jsonResponse.content}"
   - script: python
     body: |
-      x = ${jsonResponse.content};
+      x = jsonResponse.content;
       execution.setVariable("result", x)
   - log: ${result}
