@@ -3,6 +3,7 @@ configuration:
   - "mvn://org.python:jython-standalone:2.7.1"
   arguments:
     x: "NULL"
+    json_data: ""
 
 flows:
   default:
