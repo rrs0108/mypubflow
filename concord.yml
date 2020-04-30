@@ -14,7 +14,7 @@ flows:
       out: jsonResponse
   - if: ${jsonResponse.success}
     then:
-      x: "${jsonResponse.content}"
+      - x: "${jsonResponse.content}"
      #- log: "Response received: ${jsonResponse.content}"
 
   - script: mypy.py
