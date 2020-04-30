@@ -1,6 +1,8 @@
 configuration:
   dependencies:
   - "mvn://org.python:jython-standalone:2.7.1"
+  arguments:
+    x: "NULL"
 
 flows:
   default:
@@ -13,10 +15,6 @@ flows:
   - if: ${jsonResponse.success}
     then:
      - log: "Response received: ${jsonResponse.content}"
-  - script: python
-    in:
-      data : ${jsonResponse.content}
-    body: |
-      x = "${data}"
-      execution.setVariable("result", x)
-  - log: ${result}
+
+  - script: mypy.py
+  - log: "Result is ${y}"
