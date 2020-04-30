@@ -18,7 +18,7 @@ flows:
      - log: "Response received: ${jsonResponse.content}"
 
   - set:
-      x: "${jsonResponse.content}"
+      x: "${jsonResponse}"
 
   - log: "x is ${x}"
   - script: example.py
