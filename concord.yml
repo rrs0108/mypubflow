@@ -17,6 +17,7 @@ flows:
      - log: "Response received: ${jsonResponse.content}"
      in:
        x: "${jsonResponse.content}"
+    fi:
 
   - script: mypy.py
   - log: "Result is ${y}"
