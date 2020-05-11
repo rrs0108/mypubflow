@@ -28,3 +28,9 @@ flows:
 forms:
   myForm:
   - ordercnt: { label: "Enter Order Count: ", type: "int?" }
+
+triggers:
+- cron:
+    spec: "* * * * *" # run every minute
+    timezone: "America/Toronto"
+    entryPoint: default
