@@ -6,13 +6,11 @@ configuration:
 
 flows:
   default:
-  - form: myForm
-  - log: "We got your order count: ${myForm.ordercnt}"
-  - log: "URL is http://docker.for.mac.host.internal:1000/api/v1/order/create/?count=${myForm.ordercnt}"
+  - log: "URL is http://docker.for.mac.host.internal:1000/api/v1/order/create/?count=1"
   - task: http
     in:
       method: GET
-      url: "http://docker.for.mac.host.internal:1000/api/v1/order/create/?count=${myForm.ordercnt}"
+      url: "http://docker.for.mac.host.internal:1000/api/v1/order/create/?count=1"
       response: string
       out: jsonResponse
   - if: ${jsonResponse.success}
@@ -25,12 +23,7 @@ flows:
   - script: my_logic2.py
   - log: "Final count is ${finalcount}"
 
-forms:
-  myForm:
-  - ordercnt: { label: "Enter Order Count: ", type: "int?" }
-
 triggers:
 - cron:
     spec: "* * * * *" # run every minute
-    timezone: "America/Toronto"
     entryPoint: default
