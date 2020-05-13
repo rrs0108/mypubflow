@@ -1,31 +1,24 @@
-configuration:
-  dependencies:
-  - "mvn://org.python:jython-standalone:2.7.1"
-  arguments:
-    x: "NULL"
-    count: 1
-
 flows:
   default:
-  - log: "URL is http://docker.for.mac.host.internal:1000/api/v1/order/create/?count=${count}"
-  - task: http
-    in:
-      method: GET
-      url: "http://docker.for.mac.host.internal:1000/api/v1/order/create/?count=${count}"
-      response: string
-      out: jsonResponse
-  - if: ${jsonResponse.success}
-    then:
-     - log: "Response received as ${jsonResponse.content}"
-  - set:
-      x: "${jsonResponse.content}"
-  - script: kafkaconsumer.py
-  - script: my_logic1.py
-  - log: "itemlist is ${itemlist} with counts as ${itemcounts}"
-  - script: my_logic2.py
-  - log: "Final count is ${finalcount}"
+  - log: "Hello Concord User"
 
+  azureQueueFlow:
+  - log: "Triggered Azure flow for queue mypubq. Received message: ${event.message}"
+
+```
+  azureTopicFlow:
+  - log: "Triggered Azure flow for topic pparikh-topic-1. Received message: ${event.message}"
+
+  pcpEvent:
+  - log: "Triggered Pcp flow for queue pcp-test-queue. Received message: ${event.message}"
+```
 triggers:
-- cron:
-    spec: "* * * * *" # run every minute
-    entryPoint: default
+- azure:
+    namespace: "rrs-test"
+    queue: "mypubq"
+    entryPoint: azureQueueFlow
+    arguments:
+      org: "Default"
+      sharedAccessKeyName: "mypubstorageacc"
+      sharedAccessKey: "mykey"
+      concordApiKey: mytoken ##"2EDHSCPL7ZKYjPjRIMkHYg"
