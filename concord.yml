@@ -7,11 +7,11 @@ flows:
 
 triggers:
 - azure:
-    namespace: "mypubstorageacc"
+    namespace: "mypubsb"
     queue: "mypubq"
     entryPoint: azureQueueFlow
     arguments:
       org: "Default"
-      sharedAccessKeyName: "mypubstorageacc"
+      sharedAccessKeyName: "myasbkey"
       sharedAccessKey: "mykey"
       concordApiKey: mytoken ##"2EDHSCPL7ZKYjPjRIMkHYg"
