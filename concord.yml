@@ -12,6 +12,6 @@ triggers:
     entryPoint: azureQueueFlow
     arguments:
       org: "Default"
-      sharedAccessKeyName: "myasbkey"
+      sharedAccessKeyName: "RootManageSharedAccessKey"
       sharedAccessKey: "mykey"
       concordApiKey: mytoken ##"2EDHSCPL7ZKYjPjRIMkHYg"
