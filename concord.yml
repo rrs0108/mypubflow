@@ -5,13 +5,6 @@ flows:
   azureQueueFlow:
   - log: "Triggered Azure flow for queue mypubq. Received message: ${event.message}"
 
-```
-  azureTopicFlow:
-  - log: "Triggered Azure flow for topic pparikh-topic-1. Received message: ${event.message}"
-
-  pcpEvent:
-  - log: "Triggered Pcp flow for queue pcp-test-queue. Received message: ${event.message}"
-```
 triggers:
 - azure:
     namespace: "rrs-test"
