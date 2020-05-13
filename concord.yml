@@ -7,7 +7,7 @@ flows:
 
 triggers:
 - azure:
-    namespace: "rrs-test"
+    namespace: "mypubstorageacc"
     queue: "mypubq"
     entryPoint: azureQueueFlow
     arguments:
